@@ -1,0 +1,65 @@
+:root{
+  --bg:#fdf6ec; --card-bg:#ffffff; --text:#2b1a0f; --text-muted:#6b5a4a;
+  --border:#e3d5c0; --accent:#c47f17; --danger:#c0392b; --good:#2e7d32;
+  --input-bg:#fffaf2;
+  --customer:#7f8c8d; --retailer:#e07a5f; --wholesaler:#3d9970;
+  --distributor:#3d5a80; --factory:#8e44ad;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1b140d; --card-bg:#2a2019; --text:#f2e9df; --text-muted:#b8a48d;
+    --border:#453626; --input-bg:#332a20;
+  }
+}
+*{ box-sizing:border-box; }
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Segoe UI', system-ui, -apple-system, 'Sarabun', sans-serif;
+  min-height:100vh;
+}
+.wrap{ max-width:900px; margin:0 auto; padding:20px 16px 60px; }
+h1{ font-size:20px; margin:4px 0 2px; }
+.sub{ color:var(--text-muted); font-size:13.5px; margin-bottom:16px; }
+.card{
+  background:var(--card-bg); border:1px solid var(--border); border-radius:12px;
+  padding:16px 18px; margin-bottom:14px; border-top:4px solid var(--stcolor,var(--accent));
+}
+.card h3{ margin:0 0 10px; font-size:16px; }
+.row{ display:flex; justify-content:space-between; font-size:14px; margin:6px 0; }
+.row .lbl{ color:var(--text-muted); }
+.row .val{ font-weight:600; }
+.val.backlog{ color:var(--danger); }
+button{
+  background:var(--accent); color:#fff; border:none; border-radius:8px;
+  padding:10px 18px; font-size:15px; font-weight:600; cursor:pointer;
+}
+button:disabled{ background:#a89684; cursor:not-allowed; }
+button.secondary{ background:transparent; color:var(--accent); border:1px solid var(--accent); }
+input[type=number], input[type=text]{
+  width:100%; padding:9px 10px; font-size:16px; border-radius:8px;
+  border:1px solid var(--border); background:var(--input-bg); color:var(--text); margin-top:6px;
+}
+label{ font-size:12.5px; color:var(--text-muted); display:block; }
+.status{ font-size:13px; color:var(--text-muted); margin-top:8px; }
+.status.ok{ color:var(--good); }
+.status.err{ color:var(--danger); }
+.linklist .linkrow{ display:flex; align-items:center; gap:8px; margin:8px 0; flex-wrap:wrap; }
+.linklist .linklabel{ flex:0 0 auto; font-size:13px; color:var(--text-muted); min-width:78px; }
+.linklist .linkurl{ flex:1; min-width:120px; padding:9px 10px; font-size:12px; border-radius:8px; border:1px solid var(--border); background:var(--input-bg); color:var(--text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.linklist .copybtn{ padding:9px 14px; font-size:12.5px; white-space:nowrap; }
+.linklist .copybtn.copied{ background:var(--good); }
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-bottom:14px; }
+.minicard{ background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; border-top:3px solid var(--stcolor,var(--accent)); }
+.minicard h4{ margin:0 0 6px; font-size:13.5px; }
+.minicard .row{ font-size:12.5px; margin:2px 0; }
+.legend{ display:flex; flex-wrap:wrap; gap:12px; font-size:12px; margin-bottom:6px; }
+.legend span{ display:flex; align-items:center; gap:5px; }
+.dot{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+canvas{ width:100%; display:block; }
+.err{ color:var(--danger); font-size:12.5px; margin-top:4px; display:none; }
+.badge{ display:inline-block; font-size:11.5px; padding:2px 8px; border-radius:20px; background:var(--input-bg); border:1px solid var(--border); color:var(--text-muted); }
+.badge.yes{ color:var(--good); border-color:var(--good); }
+.teamtag{ display:inline-block; font-size:12.5px; padding:3px 10px; border-radius:20px; background:var(--input-bg); border:1px solid var(--accent); color:var(--accent); font-weight:600; margin-bottom:10px; }
+table.log{ width:100%; font-size:12.5px; border-collapse:collapse; }
+table.log th{ text-align:left; color:var(--text-muted); font-weight:600; }
+table.log td, table.log th{ padding:3px 4px; }
